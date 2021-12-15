@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import App from './App';
+import Home from './Pages/Home';
 import NoRoute from './Pages/NoRoute';
 
 ReactDOM.render(
@@ -10,7 +11,7 @@ ReactDOM.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          {/* <Route index element={<Home />} /> */}
+          <Route index element={<Home />} />
           {/* <Route path="post" element={<PostExam />} /> */}
           {/* <Route path="exams" element={<Exams />} /> */}
           <Route path="*" element={<NoRoute/>}/>
