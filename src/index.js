@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import App from './App';
 import Home from './Pages/Home';
+import PostExam from './Pages/PostExam';
+import Exams from './Pages/Exams';
 import NoRoute from './Pages/NoRoute';
 
 ReactDOM.render(
@@ -12,8 +14,8 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Home />} />
-          {/* <Route path="post" element={<PostExam />} /> */}
-          {/* <Route path="exams" element={<Exams />} /> */}
+          <Route path="post" element={<PostExam />} />
+          <Route path="exams" element={<Exams />} />
           <Route path="*" element={<NoRoute/>}/>
         </Route>
       </Routes>
