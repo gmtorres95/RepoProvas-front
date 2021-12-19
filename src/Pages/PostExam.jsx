@@ -5,9 +5,12 @@ import { getDisciplines } from '../services/disciplinesService';
 export default function PostExam() {
   const [categories, setCategories] = useState([{ category: 'Carregando...' }]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
+  const [disciplines, setDisciplines] = useState([{ category: 'Carregando...' }]);
+  const [selectedDisciplineId, setSelectedDisciplineId] = useState(0);
 
   useEffect(() => {
     getCategories(setCategories);
+    getDisciplines(setDisciplines);
   }, []);
 
   return(
@@ -20,6 +23,16 @@ export default function PostExam() {
             {categories.map((category) => 
               <option value={category.id} key={category.id}>
                 {category.category}
+              </option>
+            )}
+        </select>
+
+        <label for="disciplines">Selecione a disciplina: </label>
+        <select name="disciplines" id="disciplines" onChange={(e) => setSelectedDisciplineId(e.target.value)}>
+          <option value={0} />
+            {disciplines.map((discipline) => 
+              <option value={discipline.id} key={discipline.id}>
+                {discipline.discipline}
               </option>
             )}
         </select>
