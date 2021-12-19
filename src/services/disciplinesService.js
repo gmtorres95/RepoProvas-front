@@ -6,7 +6,8 @@ function getDisciplines(setDisciplines) {
       setDisciplines(resp.data);
     })
     .catch((err) => {
-      alert('Erro ao buscar disciplinas');
+      if (err.response.status === 404) alert('Nenhuma disciplina cadastrada');
+      else alert('Erro ao buscar disciplinas');
       console.log(err);
     })
 }

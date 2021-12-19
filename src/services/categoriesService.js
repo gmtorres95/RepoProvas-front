@@ -6,7 +6,8 @@ function getCategories(setCategories) {
       setCategories(resp.data);
     })
     .catch((err) => {
-      alert('Erro ao buscar categorias');
+      if (err.response.status === 404) alert('Nenhuma categoria cadastrada')
+      else alert('Erro ao buscar categorias');
       console.log(err);
     })
 }
