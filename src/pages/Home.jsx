@@ -8,7 +8,7 @@ export default function Home() {
       <Link to="/post">
         <button>Postar prova</button>
       </Link>
-      <Link to="/exams">
+      <Link to="/list">
         <button>Ver provas</button>
       </Link>
     </div>

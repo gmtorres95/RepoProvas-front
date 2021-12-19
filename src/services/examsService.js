@@ -15,6 +15,18 @@ function postExam(body, navigate) {
     })
 }
 
+function getExamsByTeacher(setTeachers) {
+  axios.get(`${process.env.REACT_APP_API_BASE_URL}/teachers`)
+    .then((resp) => {
+      setTeachers(resp.data.sort((a, b) => a.name > b.name ? 1 : -1))
+    })
+    .catch((err) => {
+      if (err.response.status === 404) alert('Não há professores cadastrados no sistema');
+      else alert('Erro ao buscar lista de professores');
+    })
+}
+
 export {
   postExam,
+  getExamsByTeacher,
 };
