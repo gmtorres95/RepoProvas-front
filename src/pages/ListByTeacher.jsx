@@ -3,8 +3,8 @@ import { getCategories } from '../services/categoriesService';
 import { getExamsByTeacher } from '../services/examsService';
 
 export default function ListByTeacher() {
-  const [teachers, setTeachers] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [teachers, setTeachers] = useState([]);
 
   useEffect(() => {
     getCategories(setCategories);
@@ -26,6 +26,8 @@ export default function ListByTeacher() {
         ));
     setCategories(newCategories);
   }
+
+  if (!categories.length || !teachers.length) return <h1>Carregando...</h1>
 
   return (
     <div>

@@ -5,17 +5,11 @@ import { getDisciplines } from '../services/disciplinesService';
 import { postExam } from '../services/examsService';
 
 export default function PostExam() {
-  const initialState = [{
-    id: 0,
-    category: 'Carregando...',
-    discipline: 'Carregando...',
-    name: 'Selecione uma disciplina',
-  }];
-  const [categories, setCategories] = useState(initialState);
+  const [categories, setCategories] = useState([]);
   const [selectedCategoryId, setSelectedCategoryId] = useState(0);
-  const [disciplines, setDisciplines] = useState(initialState);
+  const [disciplines, setDisciplines] = useState([]);
   const [selectedDisciplineId, setSelectedDisciplineId] = useState(0);
-  const [teachers, setTeachers] = useState(initialState);
+  const [teachers, setTeachers] = useState([]);
   const [selectedTeacherId, setSelectedTeacherId] = useState(0);
   const [year, setYear] = useState('');
   const [semester, setSemester] = useState('');
@@ -30,7 +24,7 @@ export default function PostExam() {
   function selectDisciplineHandler(disciplineId) {
     setSelectedDisciplineId(disciplineId);
     setSelectedTeacherId(0);
-    if (disciplineId === 0) setTeachers(initialState);
+    if (disciplineId === 0) setTeachers([]);
     else {
       disciplineId = disciplines.map((discipline) => discipline.id).indexOf(Number(disciplineId));
       setTeachers(disciplines[disciplineId].teachers);
@@ -62,6 +56,8 @@ export default function PostExam() {
     postExam(body, navigate);
   }
 
+  if (!categories.length || !disciplines.length) return <h1>Carregando...</h1>;
+
   return(
     <div>
       <h1>Postar prova</h1>
@@ -89,11 +85,12 @@ export default function PostExam() {
         <label>Selecione o professor: </label>
         <select onChange={(e) => setSelectedTeacherId(Number(e.target.value))}>
           <option value={0} />
-          {teachers.map((teacher) =>
+          {teachers.length ? teachers.map((teacher) =>
             <option value={teacher.id} key={teacher.id}>
               {teacher.name}
             </option>
-          )}
+            ) : <option>Selecione uma disciplina</option>
+          }
         </select>
 
         <label>Selecione o ano da prova: </label>

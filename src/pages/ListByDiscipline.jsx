@@ -35,6 +35,8 @@ export default function ListByDiscipline() {
     setCategories(newCategories);
   }
 
+  if (!semesters.length || !baseCategories.length) return <h1>Carregando...</h1>
+
   return (
     <div>
       <h1>Listar por disciplina</h1>
