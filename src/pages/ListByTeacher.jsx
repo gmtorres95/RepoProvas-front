@@ -33,7 +33,7 @@ export default function ListByTeacher() {
           <option value={i} key={teacher.id}>
             {`${teacher.name} (${teacher.exams.length})`}
           </option>
-          )}
+        )}
       </select>
 
       {categories.map((category) => !!category.exams?.length &&

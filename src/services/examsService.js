@@ -21,8 +21,8 @@ function getExamsByTeacher(setTeachers) {
       setTeachers(resp.data.sort((a, b) => a.name > b.name ? 1 : -1))
     })
     .catch((err) => {
-      if (err.response.status === 404) alert('Não há professores cadastrados no sistema');
-      else alert('Erro ao buscar lista de professores');
+      if (err.response.status === 404) alert('Nenhum professor cadastrado');
+      else alert('Erro ao buscar professores');
     })
 }
 
