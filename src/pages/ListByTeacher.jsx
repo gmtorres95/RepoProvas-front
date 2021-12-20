@@ -12,6 +12,11 @@ export default function ListByTeacher() {
   }, []);
 
   function getExamsHandler(e) {
+    if (e.target.value === '-1') {
+      setCategories([]);
+      return;
+    }
+
     const newCategories = [...categories];
     newCategories.map((category) =>
       category.exams = teachers[e.target.value]
@@ -28,7 +33,7 @@ export default function ListByTeacher() {
 
       <label>Selecione um professor: </label>
       <select onChange={(e) => getExamsHandler(e)}>
-        <option value={0} />
+        <option value={-1} />
         {teachers.map((teacher, i) => 
           <option value={i} key={teacher.id}>
             {`${teacher.name} (${teacher.exams.length})`}
