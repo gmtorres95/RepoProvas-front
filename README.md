@@ -1,6 +1,4 @@
-#  RepoProvas (front-end)
-
-<img src="./public/logo192.png" />
+#  <img src="./public/favicon.ico" height="24px" /> RepoProvas (front-end)
 
 Share and search for old exams to help you study.  
 Check the back-end of this application [here](https://github.com/gmtorres95/RepoProvas-back)  
@@ -13,6 +11,10 @@ Check the this application in production [here](https://repoprovas-one.vercel.ap
   <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
   <img src="https://img.shields.io/badge/Vercel-000?style=for-the-badge&logo=vercel&logoColor=white" />
 </div>
+
+## Preview
+
+<img src="./public/preview.gif" height="480px" />
 
 ## How to run
 
