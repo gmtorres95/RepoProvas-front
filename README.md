@@ -28,16 +28,10 @@ $ git clone https://github.com/gmtorres95/RepoProvas-front
 $ npm i
 ```
 
-### Compile the code
-
-```bash
-$ npm run build
-```
-
 ### Run the application
 
 ```bash
 $ npm start
 ```
 
-The server will automatically start at localhost:3000/ on your favorite browser
+The server will automatically start at localhost:3000/
